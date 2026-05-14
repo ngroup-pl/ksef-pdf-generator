@@ -1,24 +1,29 @@
 {
-  "name": "@akmf/ksef-fe-invoice-converter",
+  "name": "@ngroup-pl/ksef-pdf-generator",
   "version": "1.1.11",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/ksef-pdf-generator.umd.cjs",
+  "module": "./dist/ksef-pdf-generator.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ksef-pdf-generator.js",
+      "require": "./dist/ksef-pdf-generator.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite --mode public --config vite.config.ts",
     "build": "vite build --mode production",
     "type": "tsc -p src/app-public/tsconfig.json --noEmit",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:ci": "vitest run --coverage"
-  },
-  "main": "./ksef-fe-invoice-converter.umd.cjs",
-  "module": "./ksef-fe-invoice-converter.js",
-  "types": "./index.d.ts",
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "import": "./ksef-fe-invoice-converter.js",
-      "require": "./ksef-fe-invoice-converter.umd.cjs"
-    }
+    "test:ci": "vitest run --coverage",
+    "prepublishOnly": "npm run build",
+    "deploy": "npm publish --tag latest"
   },
   "keywords": [],
   "author": "",
@@ -55,5 +60,12 @@
     "i18next-http-backend": "^3.0.2",
     "pdfmake": "^0.2.20",
     "xml-js": "^1.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngroup-pl/ksef-pdf-generator.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
