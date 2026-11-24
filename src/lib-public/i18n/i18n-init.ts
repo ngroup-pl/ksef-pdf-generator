@@ -6,7 +6,6 @@ export const i18nReady: Promise<void> = i18next
   .init({
     lng: 'pl',
     debug: false,
-    showSupportNotice: false,
     resources: {
       en: { translation: en },
       pl: { translation: pl },
